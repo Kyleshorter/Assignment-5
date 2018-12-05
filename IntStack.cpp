@@ -5,7 +5,7 @@ using namespace std;
 
 IntStack::IntStack()
 {
-    head=NULL;
+    head==NULL;
 }
 IntStack::~IntStack()
 {
@@ -29,8 +29,8 @@ int IntStack::pop()
 {
     assert(!isEmpty());
 
-    int result = head->data;  //retrieve front item
-    Node * temp = head;
+    int result = head->data;//retrieve front item
+    Node *temp = head;
     head = head->next;        //head points to second item
     delete temp;              //deallocate front item
     return result;
@@ -42,5 +42,5 @@ bool IntStack::isFull()
 }
 bool IntStack::isEmpty()
 {
-    return (head==NULL);
+    return ( head==NULL );
 }
