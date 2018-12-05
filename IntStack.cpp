@@ -5,7 +5,7 @@ using namespace std;
 
 IntStack::IntStack()
 {
-    head= NULL;
+    head=NULL;
 }
 IntStack::~IntStack()
 {
@@ -17,14 +17,13 @@ void IntStack::push(int val)
 {
     assert(!isFull());
 
-
     Node *temp = new Node;   //allocate new node
     temp->data = val;
 
 
     temp->next = head;       //insert at head of list
     head = temp;
-
+    cout << val << " ";
 }
 int IntStack::pop()
 {
@@ -43,5 +42,5 @@ bool IntStack::isFull()
 }
 bool IntStack::isEmpty()
 {
-    return head==NULL;
+    return (head==NULL);
 }
