@@ -8,7 +8,6 @@ int main()
     IntStack stack;
     char x;
     char value;
-    char y;
     string fileName;
     ifstream file;
 
@@ -17,14 +16,14 @@ int main()
     cout << endl;
     file.open(fileName.c_str());
     cout << "Testing this files (), {}, and []: " << endl;
-    while(file.good()){
+    while(file.good())
+    {
         file >> x;
 
         if(x == '{' || x== '(' || x == '[')
         {
             stack.push(x);
         }
-
         else if(x == '}' || x== ')' || x == ']')
         {
             value= stack.pop();
@@ -44,26 +43,25 @@ int main()
                     return 1;
                 }
         }
-        else
-        {
-            y== stack.pop();
-            cout << y << endl;
-            if(value == '{')
-                {
-                    cout << "Missing }" << endl;
-                }
-            else if(value == '(')
-                {
-                    cout << "Missing )" << endl;
-                }
-            else if(value == '[')
-                {
-                    cout << "Missing ]" << endl;
-                }
-        }
-
     }
-    file.close();
+    value= stack.pop();
+    cout << value << endl;
+    if(value == '{')
+    {
+        cout << "Missing }" << endl;
+        return 1;
+    }
+    else if(value == '(')
+    {
+        cout << "Missing )" << endl;
+        return 1;
+    }
+    else if(value == '[')
+    {
+        cout << "Missing ]" << endl;
+        return 1;
+    }
     cout << "Your file is good!" << endl;
+    file.close();
     return 0;
 }
