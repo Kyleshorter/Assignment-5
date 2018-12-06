@@ -7,6 +7,7 @@ int main()
 {
     IntStack stack;
     char x;
+    char value;
     string fileName;
     ifstream file;
 
@@ -17,15 +18,48 @@ int main()
 
     while(file.good()){
         file >> x;
-        
+
         if(x == '{' || x== '(' || x == '[')
         {
             stack.push(x);
         }
+
         if(x == '}' || x== ')' || x == ']')
         {
-            stack.pop();
+            value= stack.pop();
+            cout << value << endl;
+            if(value == '{' && x== ')')
+                {
+                    cout << "Expected } but found )" << endl;
+                    return 1;
+                }
+            if(value == '{' && x== ']')
+                {
+                    cout << "Expected } but found ]" << endl;
+                    return 1;
+                }
+            if(value == '(' && x== '}')
+                {
+                    cout << "Expected ) but found }" << endl;
+                    return 1;
+                }
+            if(value == '(' && x== ']')
+                {
+                    cout << "Expected ) but found ]" << endl;
+                    return 1;
+                }
+            if(value == '[' && x== '}')
+                {
+                    cout << "Expected ] but found }" << endl;
+                    return 1;
+                }
+            if(value == '[' && x== ')')
+                {
+                    cout << "Expected ] but found )" << endl;
+                    return 1;
+                }
         }
+
     }
     return 0;
 }
