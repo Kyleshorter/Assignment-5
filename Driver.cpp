@@ -8,6 +8,7 @@ int main()
     IntStack stack;
     char x;
     char value;
+    char y;
     string fileName;
     ifstream file;
 
@@ -24,9 +25,9 @@ int main()
             stack.push(x);
         }
 
-        if(x == '}' || x== ')' || x == ']')
+        else if(x == '}' || x== ')' || x == ']')
         {
-            value== stack.pop();
+            value= stack.pop();
             if(value == '{' && x!= '}')
                 {
                     cout << "Expected } but found " << x << endl;
@@ -43,6 +44,24 @@ int main()
                     return 1;
                 }
         }
+        else
+        {
+            y== stack.pop();
+            cout << y << endl;
+            if(value == '{')
+                {
+                    cout << "Missing }" << endl;
+                }
+            else if(value == '(')
+                {
+                    cout << "Missing )" << endl;
+                }
+            else if(value == '[')
+                {
+                    cout << "Missing ]" << endl;
+                }
+        }
+
     }
     file.close();
     cout << "Your file is good!" << endl;
